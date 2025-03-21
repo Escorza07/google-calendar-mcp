@@ -1,0 +1,75 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "BSAWkdQetI61tRMEkmmXSSmdIRLtUV0"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/gaelthome/Library/CloudStorage/GoogleDrive-gael@utopica.net/Mi unidad/Segundo cerebro/",
+        "/Users/gaelthome/Documents/Github"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "youtube-transcript": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@kimtaeyoon83/mcp-server-youtube-transcript"
+      ]
+    },
+    "perplexity": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-perplexity"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "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"
+      }
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    },
+    "google-calendar": {
+      "command": "node",
+      "args": [
+        "/Users/gaelthome/Documents/Github/servidores-mcp/google-calendar-mcp/build/index.js"
+      ],
+      "env": {
+        "GOOGLE_CLIENT_ID": "82122316308-u1crfqtd2urnra0pbjqlgo8ij2lbdstb.apps.googleusercontent.com",
+        "GOOGLE_CLIENT_SECRET": "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",
+        "GOOGLE_REDIRECT_URI": "http://localhost:3000/oauth2callback",
+        "GOOGLE_REFRESH_TOKEN": "TU_REFRESH_TOKEN_AQUÍ"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
