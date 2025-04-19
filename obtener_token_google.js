@@ -11,7 +11,6 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Leer variables desde .env o desde entorno
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3000/oauth2callback';
@@ -46,9 +45,15 @@ async function getRefreshToken() {
             return;
           }
 
-          console.log('\n✅ REFRESH TOKEN OBTENIDO:');
+          console.log('\n✅ REFRESH TOKEN OBTENIDO:\n');
           console.log(refreshToken);
-          console.log('\n💡 Copia y guarda este token en un lugar seguro o agrégalo a tu archivo .env.\n');
+          console.log(`
+📍 Copia este token y pégalo manualmente en el archivo:
+📁 [ruta_del_proyecto]/mcp_claude/config/repositories.json
+
+Busca el repositorio con "name": "mcp-google-calendar" y reemplaza el valor de:
+"GOOGLE_REFRESH_TOKEN": "" → con el token que acabas de obtener.
+`);
 
           res.end('¡Autenticación exitosa! Puedes cerrar esta ventana.');
           server.close();
@@ -57,7 +62,7 @@ async function getRefreshToken() {
           res.end('No se recibió código de autorización.');
         }
       } catch (err) {
-        console.error('Error al procesar la solicitud:', err);
+        console.error('❌ Error al procesar la solicitud:', err);
         res.end('Hubo un error. Revisa la consola.');
         server.close();
         reject(err);
